@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Task;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -32,6 +33,21 @@ class DatabaseSeeder extends Seeder
 
         foreach ($user as $item) {
             User::create($item);
+        }
+
+        $task = [
+            [
+                'name' => 'Task 1',
+                'status' => 'PENDING',
+            ],
+            [
+                'name' => 'Task 2',
+                'status' => 'COMPLETED',
+            ],
+        ];
+
+        foreach ($task as $item) {
+            Task::create($item);
         }
     }
 }
